@@ -8,3 +8,4 @@
 Bike.create(name:"aaa", description:category: "City")
 Bike.create(category: "MTB")
 Bike.create(category: "Race")
+

@@ -1,4 +1,4 @@
-class BookingsController < ApplicationControlle
+class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
@@ -14,5 +14,11 @@ class BookingsController < ApplicationControlle
   end
 
   def destroy
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_day, :finish_day)
   end
 end

@@ -1,7 +1,12 @@
-<h1>Pages#home</h1>
+<div class="container">
+  <h1>Loctaion</h1>
+  <%= form_for :bike, url: "bikes", method: "get" do |form| %>
+  <%= form.text_field :longtitude %>
+  <%= form.submit value="Submit" %>
+<% end  %>
 
-<%= simple_form_for(booking) do |f| %>
-        <%= f.input :start_day %>
-        <%= f.input :finish_day %>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+</div>
+<%# 
+# action -> ???
+# method -> GET 
+ %>
