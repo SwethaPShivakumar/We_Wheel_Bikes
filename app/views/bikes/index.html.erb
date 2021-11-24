@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Categories</h1>
+
+<div class="co-12 colsm-6 col-md-4">
+  <%= link_to 'City', bikes_path(category: 'City') %>
+    <div class="card-category" data-aos="zoom-in">
+      <h2>City</h2>
+    </div>
+</div>
+
+<div class="co-12 colsm-6 col-md-4">
+  <%= link_to 'MTB', bikes_path(category: 'MTB') %>
+    <div class="card-category" data-aos="zoom-in">
+      <h2>MTB</h2>
+    </div>
+</div>
+
+<div class="co-12 colsm-6 col-md-4">
+  <%= link_to 'Race', bikes_path(category: 'Race')%>
+    <div class="card-category" data-aos="zoom-in">
+      <h2>Race</h2>
+    </div>
+</div>
