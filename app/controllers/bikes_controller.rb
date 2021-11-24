@@ -1,14 +1,14 @@
 class BikesController < ApplicationController
-before_action :set_bike, only: %i[ show edit update destroy ]
+  before_action :set_bike, only: %i[show edit update destroy]
   def index
     # Query db -> Get all bikes given location  long/lat
     @bikes = policy_scope(Bike).where(category: params[:category])
-      @markers = @bikes.geocoded.map do |bike|
-        {
-          lat: bike.latitude,
-          lng: bike.longitude
-        }
-      end
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude
+      }
+    end
   end
 
   #
@@ -17,7 +17,6 @@ before_action :set_bike, only: %i[ show edit update destroy ]
   def show
     # Query db -> Get bike by ID
   end
-
 
   #
   # Biker owner
@@ -43,7 +42,7 @@ before_action :set_bike, only: %i[ show edit update destroy ]
   end
 
   def update
-     if @bike.update(bike_params)
+    if @bike.update(bike_params)
       redirect_to @bike, notice: 'Bike was successfully updated.'
     else
       render :edit
@@ -67,4 +66,4 @@ before_action :set_bike, only: %i[ show edit update destroy ]
     params.require(:bike).permit(:name, :description, :price, :longtitude, :latitude)
   end
   # Use callbacks to share common setup or constraints between actions.
-  end
+end
