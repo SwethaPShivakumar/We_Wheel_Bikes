@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Bikes</h1>
-
 <table>
   <thead>
     <tr>
@@ -9,11 +7,10 @@
       <th>Address</th>
       <th>Description</th>
       <th>Price</th>
-       <th>Category</th>
+      <th>Category</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @bikes.each do |bike| %>
       <tr>
@@ -24,25 +21,9 @@
         <td><%= bike.category %></td>
         <td><%= link_to 'Show', bike %></td>
         <td><%= link_to 'Edit', edit_bike_path(bike) %></td>
-
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-
-
-<%#
- t.string "name"
-    t.float "latitude"
-    t.float "longitude"
-    t.text "description"
-    t.integer "price"
-    t.text "address"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
-    t.index ["user_id"], name: "index_bikes_on_user_id" %>
