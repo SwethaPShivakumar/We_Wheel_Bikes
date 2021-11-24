@@ -1,0 +1,26 @@
+<h1>All bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bike name</th>
+      <th>Start day</th>
+      <th>Finish day</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+     <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.bike.name %></td>
+        <td><%= booking.start_day %></td>
+        <td><%= booking.finish_day %></td>
+        
+      </tr>
+     <% end  %>
+
+  </tbody>
+</table>
+<%= link_to 'Back', bikes_path %>

@@ -1,8 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ destroy ]
-  before_action :set_bike, only: %i[ show update  ]
+  before_action :set_bike, only: %i[ new create  ]
 
-  
+  def index
+    @bookings = Booking.all
+  end
+
   def new
     @booking = Booking.new
   end
@@ -10,9 +13,11 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.bike = @bike
+    @booking.user = current_user
     if @booking.save
-      redirect_to bike_path(@bike)
+      redirect_to bookings_path
     else
+      puts @bike.errors.full_messages
       render :new
     end
   end
