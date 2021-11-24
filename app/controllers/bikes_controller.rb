@@ -3,10 +3,15 @@ class BikesController < ApplicationController
   def index
     # Query db -> Get all bikes given location  long/lat
     @bikes = policy_scope(Bike) #.where(category: params[:category])
+    @bikes = Bike.all
+
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,
-        lng: bike.longitude
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url('https://source.unsplash.com/random')
+        # add interpolation of bike img here
       }
     end
   end

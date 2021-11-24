@@ -16,9 +16,11 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers)
     console.log({markers});
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
-        .setLngLat([marker.lng, marker.lat])
-        .addTo(map);
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+        new mapboxgl.Marker()
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(popup)
+          .addTo(map);
       // debugger
       // bounds.extend(feature.geometry.coordinates);
     });
@@ -31,6 +33,7 @@ const initMapbox = () => {
 };
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
+
     markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 2000 });
   };
