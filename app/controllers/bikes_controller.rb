@@ -2,7 +2,7 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
   def index
     # Query db -> Get all bikes given location  long/lat
-    @bikes = policy_scope(Bike).where(category: params[:category])
+    @bikes = policy_scope(Bike) #.where(category: params[:category])
     @markers = @bikes.geocoded.map do |bike|
       {
         lat: bike.latitude,

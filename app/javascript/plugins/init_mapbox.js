@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const initMapbox = () => {
@@ -12,19 +12,27 @@ const initMapbox = () => {
     });
 
     // fit map to markers
-    const bounds = new mapboxgl.LngLatBounds();
+    // const bounds = new mapboxgl.LngLatBounds();
     const markers = JSON.parse(mapElement.dataset.markers)
-    debugger
-    markers.forEach(function (feature) {
-      debugger
-      bounds.extend(feature.geometry.coordinates);
+    console.log({markers});
+    markers.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+        .addTo(map);
+      // debugger
+      // bounds.extend(feature.geometry.coordinates);
     });
 
-    map.fitBounds(bounds);
+    fitMapToMarkers(map, markers);
   }
   // add location center - where the user searches (from dataset in html)
 
 
 };
+  const fitMapToMarkers = (map, markers) => {
+    const bounds = new mapboxgl.LngLatBounds();
+    markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 2000 });
+  };
 
 export { initMapbox };
