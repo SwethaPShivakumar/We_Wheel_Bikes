@@ -2,7 +2,12 @@ class BikesController < ApplicationController
 before_action :set_bike, only: %i[ show edit update destroy ]
   def index
     # Query db -> Get all bikes given location  long/lat
-    @bikes = policy_scope(Bike)
+    query = params[:query]
+    if query == '' || query.nil?
+      @bikes = Bike.all
+    else
+      @bikes = Bike.where(category: query)
+   end
   end
 
   #

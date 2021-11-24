@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 <h1>Bikes</h1>
+
+<form action="<%= bikes_path %>">
+  <label for="query">Search:</label><br>
+  <input type="text" id="query" name="query" placeholder="Search category"><br>
+  <input type="submit" value="Submit">
+</form>
+
 <table>
   <thead>
     <tr>
@@ -12,6 +19,7 @@
     </tr>
   </thead>
   <tbody>
+  <div class="row">
     <% @bikes.each do |bike| %>
       <tr>
         <td><%= bike.name %></td>
@@ -20,9 +28,9 @@
         <td><%= bike.price %></td>
         <td><%= bike.category %></td>
         <td><%= link_to 'Show', bike %></td>
-        <td><%= link_to 'Edit', edit_bike_path(bike) %></td>
       </tr>
     <% end %>
+      </div>
   </tbody>
 </table>
 
