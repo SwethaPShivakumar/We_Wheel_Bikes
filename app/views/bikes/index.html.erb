@@ -6,19 +6,19 @@
   <div class="row">
     <div class="co-12 colsm-6 col-md-4">
         <div class="card-category" data-aos="zoom-in">
-          <h2><%= link_to 'City', bikes_path(category: 'City') %></h2>
+          <h2><%= link_to 'City', bikes_path(category: 'City', bike: { address: @address }) %></h2>
         </div>
     </div>
 
     <div class="co-12 colsm-6 col-md-4">
         <div class="card-category" data-aos="zoom-in">
-          <h2><%= link_to 'MTB', bikes_path(category: 'MTB') %></h2>
+          <h2><%= link_to 'MTB', bikes_path(category: 'MTB', bike: { address: @address }) %></h2>
         </div>
     </div>
 
     <div class="co-12 colsm-6 col-md-4">
         <div class="card-category" data-aos="zoom-in">
-      <h2><%= link_to 'Race', bikes_path(category: 'Race')%></h2>
+      <h2><%= link_to 'Race', bikes_path(category: 'Race', bike: { address: @address })%></h2>
         </div>
     </div>
   </div>

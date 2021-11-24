@@ -2,8 +2,14 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
   def index
     # Query db -> Get all bikes given location  long/lat
-    @bikes = policy_scope(Bike) #.where(category: params[:category])
-    @bikes = Bike.all
+    if params[:bike] && params[:bike][:address].present?
+      @address = params[:bike][:address]
+      @bikes = Bike.near(@address, 500)
+    else
+      @address = ''
+      @bikes = Bike.all
+    end
+    @bikes = @bikes.where(category: params[:category]) if params[:category]
 
     @markers = @bikes.geocoded.map do |bike|
       {
