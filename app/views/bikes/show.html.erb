@@ -15,6 +15,7 @@
         <tr>
           <td><%= @bike.name %></td>
           <td><%= @bike.description %></td>
+          <td><%= @bike.price %></td>
           
           <td><%= link_to 'Book the bike', new_bike_booking_path(@bike) %></td>
           <% if policy(@bike).edit? %>
