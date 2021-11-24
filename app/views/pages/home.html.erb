@@ -1,12 +1,12 @@
 <div class="container">
-  <h1>Loctaion</h1>
+  <h1>Location</h1>
   <%= form_for :bike, url: "bikes", method: "get" do |form| %>
-  <%= form.text_field :longtitude %>
-  <%= form.submit value="Submit" %>
-<% end  %>
+    <%= form.text_field :address %>
+    <%= form.submit value="Submit" %>
+  <% end  %>
 
 </div>
-<%# 
+<%#
 # action -> ???
-# method -> GET 
+# method -> GET
  %>

@@ -1,13 +1,26 @@
 class BikesController < ApplicationController
-before_action :set_bike, only: %i[ show edit update destroy ]
+  before_action :set_bike, only: %i[show edit update destroy]
   def index
     # Query db -> Get all bikes given location  long/lat
-    query = params[:query]
-    if query == '' || query.nil?
-      @bikes = Bike.all
+
+    if params[:bike] && params[:bike][:address].present?
+      @address = params[:bike][:address]
+      @bikes = Bike.near(@address, 500)
     else
-      @bikes = Bike.where(category: query)
-   end
+      @address = ''
+      @bikes = Bike.all
+    end
+    @bikes = @bikes.where(category: params[:category]) if params[:category]
+
+    @markers = @bikes.geocoded.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url('https://source.unsplash.com/random')
+        # add interpolation of bike img here
+      }
+    end
   end
 
   #
@@ -15,8 +28,9 @@ before_action :set_bike, only: %i[ show edit update destroy ]
   #
   def show
 
-  end
+    # Query db -> Get bike by ID
 
+  end
 
   #
   # Biker owner
@@ -42,7 +56,7 @@ before_action :set_bike, only: %i[ show edit update destroy ]
   end
 
   def update
-     if @bike.update(bike_params)
+    if @bike.update(bike_params)
       redirect_to @bike, notice: 'Bike was successfully updated.'
     else
       render :edit
