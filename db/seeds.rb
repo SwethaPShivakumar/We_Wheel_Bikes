@@ -11,7 +11,7 @@ user = User.create(email: "abc@gmail.com",
             last_name: "Pattanshetty")
 Bike.create!(name:"City Cruiser Rental",
             latitude:-38.9,
-            longitude: 144.895342,
+            longitude: 144.8,
             description:"Dutch-style Lekker cruisers are perfect for checking out the city.",
             price: 30,
             address: "494 station street, Carlton North",
