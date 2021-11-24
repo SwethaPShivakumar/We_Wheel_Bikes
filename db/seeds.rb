@@ -5,7 +5,39 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Bike.create(name:"aaa", description:category: "City")
-Bike.create(category: "MTB")
-Bike.create(category: "Race")
-
+user = User.create(email: "abc@gmail.com",
+            password:"123456",
+            first_name: "Swetha",
+            last_name: "Pattanshetty")
+Bike.create!(name:"City Cruiser Rental",
+            latitude:-38.938896,
+            longitude: 144.895342,
+            description:"Dutch-style Lekker cruisers are perfect for checking out the city.",
+            price: 30,
+            address: "Melbourne",
+            user: user,
+            category: "City")
+Bike.create!(name:"E-Bike Rental, Lekker x",
+            latitude:-38.938896,
+            longitude: 144.895342,
+            description:"If you need a little power boost to help you get around, the e-bike is your best bet. These bikes are peddle-assist so every time you peddle you’ll get some assistance from the battery. Of course even if you don’t need it, our Lekker e-bikes are a fun and easy way to see Melbourne.",
+            price: 35,
+            address: "Melbourne",
+            user: user,
+            category: "MTB")
+Bike.create!(name:"Mountain Bike Rental Merida Big 7/9 60x2",
+            latitude:-38.938896,
+            longitude: 144.895342,
+            description:"if you’re more comfortable riding a bike with flat handlebars, this is going to be the best choice for you (no matter where you plan to ride).",
+            price: 35,
+            address: "Melbourne",
+            user: user,
+            category: "MTB")
+Bike.create!(name:"Flat bar Road Bike Rental, Merida speeder 20",
+            latitude:-38.938896,
+            longitude: 144.895342,
+            description:"Longer rides are most suited to the road bike. We recommend taking this one down to the Bay Trail towards Brighton, Half-Moon Bay and beyond (even the Great Ocean Road if you have the cojones!)",
+            price: 30,
+            address: "Melbourne",
+            user: user,
+            category: "Race")

@@ -7,10 +7,9 @@ before_action :set_bike, only: %i[ show edit update destroy ]
 
   #
   # Renter
-  # 
+  #
   def show
 
-    # Query db -> Get bike by ID 
   end
 
 
