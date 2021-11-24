@@ -1,41 +1,31 @@
-<h1>Bikes</h1>
+<div class="container">
+  <h1>Bikes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bikes.each do |bike| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= bike.name %></td>
-        <td><%= bike.description %></td>
-        <td><%= bike.Price %></td>
-        <td><%= link_to 'Show', bike %></td>
-        <% if policy(bike).edit? %>
-          <td><%= link_to 'Edit', edit_bike_path(bike) %></td>
-        <% end %>
-        <% if policy(bike).destroy? %>
-          <td><%= link_to 'Destroy', bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<% if policy(@bike).edit? %>
-  <%= link_to 'Edit', edit_bike_path(@bike) %> |
-<% end %>
-<% if policy(@bike).destroy? %>
-  <%= link_to 'Delete', bike_path(@bike), method: :delete %> |
-<% end %>
-<%= link_to 'Back', bikes_path %>
-<br>
+    </thead>
 
-<% if policy(Bike).create? %>
-  <%= link_to 'New Bike', new_bike_path %>
-<% end %>
+    <tbody>
+        <tr>
+          <td><%= @bike.name %></td>
+          <td><%= @bike.description %></td>
+          <td><%= @bike.price %></td>
+          
+          <td><%= link_to 'Book the bike', new_bike_booking_path(@bike) %></td>
+          <% if policy(@bike).edit? %>
+            <td><%= link_to 'Edit', edit_bike_path(@bike) %></td>
+          <% end %>
+          <% if policy(@bike).destroy? %>
+            <td><%= link_to 'Destroy', @bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Back', bikes_path %>
+</div>

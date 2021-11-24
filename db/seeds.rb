@@ -27,6 +27,7 @@ Bike.create!(name:"E-Bike Rental, Lekker x",
             category: "MTB")
 Bike.create!(name:"Mountain Bike Rental Merida Big 7/9 60x2",
             latitude:-38.938896,
+
             longitude: 144.2,
             description:"if you’re more comfortable riding a bike with flat handlebars, this is going to be the best choice for you (no matter where you plan to ride).",
             price: 35,

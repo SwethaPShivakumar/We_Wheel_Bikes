@@ -2,6 +2,7 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[show edit update destroy]
   def index
     # Query db -> Get all bikes given location  long/lat
+
     if params[:bike] && params[:bike][:address].present?
       @address = params[:bike][:address]
       @bikes = Bike.near(@address, 500)
@@ -26,7 +27,9 @@ class BikesController < ApplicationController
   # Renter
   #
   def show
+
     # Query db -> Get bike by ID
+
   end
 
   #
@@ -70,6 +73,7 @@ class BikesController < ApplicationController
 
   def set_bike
     @bike = Bike.find(params[:id])
+    authorize @bike
   end
 
   # Only allow a list of trusted parameters through.

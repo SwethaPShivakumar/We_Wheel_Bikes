@@ -1,7 +1,18 @@
-<h1>Pages#home</h1>
+<div class="container">
+  <h1>Booking</h1>
 
-<%= simple_form_for(booking) do |f| %>
-        <%= f.input :start_day %>
-        <%= f.input :finish_day %>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+  <%= form_for([@bike, @booking]) do |f| %>
+  <p>
+    <%= f.label 'start_day', 'Start day' %>
+    <%= f.datetime_select :start_day %>
+  </p>
+  <p>
+    <%= f.label 'finish_day', 'Finish day' %>
+    <%= f.datetime_select :finish_day %>
+  </p>
+  <%= f.submit 'Confirm' %>
+<% end %>
+
+<td><%= link_to 'All bookings', bookings_path %></td>
+  
+</div>

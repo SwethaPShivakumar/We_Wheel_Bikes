@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>All Categories</h1>
@@ -31,5 +32,34 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+
+<p id="notice"><%= notice %></p>
+
+<form action="<%= bikes_path %>">
+  <label for="query">Search:</label>
+  <input type="text" id="query" name="query" placeholder="Search category">
+  <input type="submit" value="Submit">
+<div class="position-relative">
+  <div class="card p-3 m-3 shadow br-3">
+    <h1>Bikes</h1>
+<div class="container mb-5">
+  <div class="d-flex justify-content-between my-4">
+  </div>
+  <div class="row my-2">
+    <% @bikes.each do |bike| %>
+      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
+        <div class="bg-white rounded shadow h-100 thumb-image">
+          <div class="p-3 rounded-bottom d-flex flex-column">
+            <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
+            <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
+            <p>Category:<%= bike.category %> <span class="text-muted font-weight-normal"></span></p>
+            <small class="text-muted"><%= bike.description %></small>
+            <p><%= link_to 'Show', bike %></p>
+            <div class="d-flex align-items-end justify-content-between pt-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
