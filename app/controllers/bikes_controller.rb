@@ -2,13 +2,14 @@ class BikesController < ApplicationController
 before_action :set_bike, only: %i[ show edit update destroy ]
   def index
     # Query db -> Get all bikes given location  long/lat
-    @bikes = policy_scope(Bike).where(category: params[:category])
+    @bikes = policy_scope(Bike)
   end
 
   #
   # Renter
   # 
   def show
+
     # Query db -> Get bike by ID 
   end
 
@@ -54,6 +55,7 @@ before_action :set_bike, only: %i[ show edit update destroy ]
 
   def set_bike
     @bike = Bike.find(params[:id])
+    authorize @bike
   end
 
   # Only allow a list of trusted parameters through.
@@ -61,4 +63,4 @@ before_action :set_bike, only: %i[ show edit update destroy ]
     params.require(:bike).permit(:name, :description, :price, :longtitude, :latitude)
   end
   # Use callbacks to share common setup or constraints between actions.
-  end
+end

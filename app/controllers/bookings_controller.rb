@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[ destroy ]
+  before_action :set_bike, only: %i[ show update  ]
+
+  
   def new
     @booking = Booking.new
   end
@@ -18,7 +22,17 @@ class BookingsController < ApplicationController
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:start_day, :finish_day)
+  
+  def set_bike
+    @bike = Bike.find(params[:bike_id])
   end
+
+  def set_booking
+    @bike = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:bike_id, :start_day, :finish_day)
+  end
+
 end
