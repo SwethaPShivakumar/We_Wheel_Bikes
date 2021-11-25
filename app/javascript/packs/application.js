@@ -22,12 +22,8 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-<<<<<<< HEAD
 import "tailwindcss";
-
-=======
 import flatpickr from "flatpickr";
->>>>>>> master
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
