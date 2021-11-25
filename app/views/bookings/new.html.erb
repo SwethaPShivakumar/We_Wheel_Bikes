@@ -1,18 +1,6 @@
 <div class="container">
-  <h1>Booking</h1>
 
-  <%= form_for([@bike, @booking]) do |f| %>
-  <p>
-    <%= f.label 'start_day', 'Start day' %>
-    <%= f.datetime_select :start_day %>
-  </p>
-  <p>
-    <%= f.label 'finish_day', 'Finish day' %>
-    <%= f.datetime_select :finish_day %>
-  </p>
-  <%= f.submit 'Confirm' %>
-<% end %>
 
-<td><%= link_to 'All bookings', bookings_path %></td>
+  <%= render 'form', bike: @bike, booking: @booking %>
   
 </div>
