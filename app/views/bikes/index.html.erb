@@ -11,7 +11,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-5 col-md-offset-3">
-            <div class="container-card">
+            <div class="container-card sticky top-0">
               <% @bikes.each do |bike| %>
                 <div class="mb-4" data-aos="zoom-in">
                   <div class="bg-white rounded-xl border-b h-100 thumb-image">
@@ -23,14 +23,15 @@
                       <p><%= link_to 'Show', bike %></p>
                     </div>
                   </div>
+                  <%# <hr> %>
                 </div>
               <% end %>
             </div>
           </div>
-          <div class="col-lg-7 sticky-top">
+          <div class="col-lg-7">
             <div class="container-map">
               <div class="rounded" id="map"
-                style="height: 100vh;"
+                style="height: 100vh; position: sticky; top: 0;"
                 data-markers="<%= @markers.to_json %>"
                 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
               </div>
