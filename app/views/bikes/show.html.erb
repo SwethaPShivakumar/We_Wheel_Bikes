@@ -15,7 +15,13 @@
         </p>
         <div class="flex justify-center">
           <button class="inline-flex text-white-500 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded text-lg">
-            <%= link_to 'Book the bike', new_bike_booking_path(@bike) %>
+            <% if user_signed_in? %>
+              <%= link_to 'Book the bike', new_bike_booking_path(@bike) %>
+            <% else  %>
+            
+              <%= link_to "Book the bike", user_session_path %>
+            
+            <% end %>
           </button>
           <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"><%= link_to 'Back', bikes_path %></button>
         </div>
