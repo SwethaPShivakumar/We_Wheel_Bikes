@@ -24,14 +24,20 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 4 });
 };
 
+const resizeMapOnLoad = (map) => {
+  map.on('idle', function () {
+    map.resize()
+  })
+}
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
-    map.resize();
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+    resizeMapOnLoad(map)
   }
 };
 
