@@ -242,7 +242,6 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
-  dotenv
   dotenv-rails
   font-awesome-sass
   geocoder
