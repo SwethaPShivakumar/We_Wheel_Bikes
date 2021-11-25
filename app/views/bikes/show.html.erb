@@ -1,31 +1,25 @@
-<div class="container">
+<div class='container pt-5 bg-color pink'>
   <h1>Bikes</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-          <td><%= @bike.name %></td>
-          <td><%= @bike.description %></td>
-          <td><%= @bike.price %></td>
-          
-          <td><%= link_to 'Book the bike', new_bike_booking_path(@bike) %></td>
-          <% if policy(@bike).edit? %>
-            <td><%= link_to 'Edit', edit_bike_path(@bike) %></td>
-          <% end %>
-          <% if policy(@bike).destroy? %>
-            <td><%= link_to 'Destroy', @bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-    </tbody>
-  </table>
-  <%= link_to 'Back', bikes_path %>
+  <div class='container pt-1 border 1px'>
+    <h2><%= @bike.name %></h2>
+    <h4>$<%= @bike.price %>.00</h4>
+    <p class='grey'><%= @bike.category %></p>
+    <p><%= @bike.description %>
+      <br>
+        <div>
+        <td><%= link_to 'Book the bike', new_bike_booking_path(@bike) %></td>
+        | <%= link_to 'Back', bikes_path %>
+        </div>
+  </div>
 </div>
+    
+    
+
+  
+
+    <% if policy(@bike).edit? %>
+      <td><%= link_to 'Edit', edit_bike_path(@bike) %></td>
+    <% end %>
+    <% if policy(@bike).destroy? %>
+      <td><%= link_to 'Destroy', @bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>

@@ -1,0 +1,16 @@
+<div class="container py-5">
+    <h3>New Booking</h3>
+     <p>Pick a date </p>
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <%= simple_form_for ([@bike, @booking]) do |f| %>
+          <%= f.input :start_day, input_html: { id: "flatpickr" }, as: :string%>
+          <%= f.input :finish_day, input_html: { id: "flatpickr" }, as: :string%>
+          <%= f.submit class: 'btn btn-ghost' %>
+        <% end %>
+      </div>
+        <td><%= link_to 'All bookings', bookings_path %></td>
+    </div>
+  </div>
+</div>
