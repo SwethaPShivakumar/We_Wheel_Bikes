@@ -1,6 +1,6 @@
 class Bike < ApplicationRecord
-  has_many :reviews, through: :bookings, dependent: :destroy
   has_many :bookings
+  has_many :reviews, through: :bookings, dependent: :destroy
   belongs_to :user
   has_one_attached :photo
   geocoded_by :address

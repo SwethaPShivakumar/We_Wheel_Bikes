@@ -1,0 +1,8 @@
+<div class="container">
+
+    <%= simple_form_for [@booking.bike, @booking, @review] do |f| %>
+        <%= f.input :review %>
+        <%= f.submit class: 'btn btn-ghost' %>
+    <% end %>
+    <%= link_to 'Back', bike_path(@booking.bike) %>
+</div>

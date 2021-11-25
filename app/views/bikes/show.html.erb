@@ -1,31 +1,34 @@
-<div class="container">
+<div class='container pt-5 bg-color pink'>
   <h1>Bikes</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <section class="text-gray-600 body-font border 1px">
+    <div class="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"><%= @bike.name %>
+          <br class="hidden lg:inline-block"><h4>$<%= @bike.price %>.00</h4>
+          <p class=" text-left"><%= @bike.description %></p>
+        </h1>
+        <p class="mb-8 leading-relaxed">
+          <% @bike.reviews.each do |review| %>
+            <p><%= review.review %></p>
+          <% end %>
+        </p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white-500 bg-gray-200 border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded text-lg">
+            <%= link_to 'Book the bike', new_bike_booking_path(@bike) %>
+          </button>
+          <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"><%= link_to 'Back', bikes_path %></button>
+        </div>
+      </div>
+    
+    </div>
+  </section>
 
-    <tbody>
-        <tr>
-          <td><%= @bike.name %></td>
-          <td><%= @bike.description %></td>
-          <td><%= @bike.price %></td>
-          
-          <td><%= link_to 'Book the bike', new_bike_booking_path(@bike) %></td>
-          <% if policy(@bike).edit? %>
-            <td><%= link_to 'Edit', edit_bike_path(@bike) %></td>
-          <% end %>
-          <% if policy(@bike).destroy? %>
-            <td><%= link_to 'Destroy', @bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        </tr>
-    </tbody>
-  </table>
-  <%= link_to 'Back', bikes_path %>
 </div>
+
+    <% if policy(@bike).edit? %>
+      <td><%= link_to 'Edit', edit_bike_path(@bike) %></td>
+    <% end %>
+    <% if policy(@bike).destroy? %>
+      <td><%= link_to 'Destroy', @bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
