@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ destroy ]
-  before_action :set_bike, only: %i[ new create  ]
+  before_action :set_bike, only: %i[ new create ]
 
   def index
     @bookings = Booking.all
@@ -22,6 +22,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
@@ -32,7 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @bike = Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params
