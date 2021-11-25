@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const buildMap = (mapElement) => {
@@ -29,6 +29,7 @@ const initMapbox = () => {
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
+    map.resize();
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
   }
