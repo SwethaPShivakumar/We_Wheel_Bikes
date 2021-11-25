@@ -1,11 +1,30 @@
-<div class="container">
-  <h1>Location</h1>
-  <%= form_for :bike, url: "bikes", method: "get" do |form| %>
-    <%= form.text_field :address %>
-    <%= form.submit value="Submit" %>
-  <% end  %>
 
-</div>
+<p id="notice"><%= notice %></p>
+
+<h1>All Categories</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="co-12 colsm-6 col-md-4">
+        <div class="card-category" data-aos="zoom-in">
+          <h2><%= link_to 'City', bikes_path(category: 'City', bike: { address: @address }) %></h2>
+        </div>
+    </div>
+
+    <div class="co-12 colsm-6 col-md-4">
+        <div class="card-category" data-aos="zoom-in">
+          <h2><%= link_to 'MTB', bikes_path(category: 'MTB', bike: { address: @address }) %></h2>
+        </div>
+    </div>
+
+    <div class="co-12 colsm-6 col-md-4">
+        <div class="card-category" data-aos="zoom-in">
+      <h2><%= link_to 'Race', bikes_path(category: 'Race', bike: { address: @address })%></h2>
+        </div>
+    </div>
+  </div>
+
+
 <%#
 # action -> ???
 # method -> GET

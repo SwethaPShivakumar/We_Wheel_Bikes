@@ -1,65 +1,42 @@
+  <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
+  <form class="bg-light" action="<%= bikes_path %>">
+    <label for="query">Search:</label>
+    <input type="text" id="query" name="query" placeholder="Search category">
+    <input type="submit" value="Submit">
+  <div class="position-relative">
+    <div class="card pt-4">
+      <%# <h1>Bikes</h1> %>
 
-<h1>All Categories</h1>
-
-<div class="container">
-  <div class="row">
-    <div class="co-12 colsm-6 col-md-4">
-        <div class="card-category" data-aos="zoom-in">
-          <h2><%= link_to 'City', bikes_path(category: 'City', bike: { address: @address }) %></h2>
-        </div>
-    </div>
-
-    <div class="co-12 colsm-6 col-md-4">
-        <div class="card-category" data-aos="zoom-in">
-          <h2><%= link_to 'MTB', bikes_path(category: 'MTB', bike: { address: @address }) %></h2>
-        </div>
-    </div>
-
-    <div class="co-12 colsm-6 col-md-4">
-        <div class="card-category" data-aos="zoom-in">
-      <h2><%= link_to 'Race', bikes_path(category: 'Race', bike: { address: @address })%></h2>
-        </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <div id="map"
-          style="width: 100%; height: 300px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-
-<p id="notice"><%= notice %></p>
-
-<form action="<%= bikes_path %>">
-  <label for="query">Search:</label>
-  <input type="text" id="query" name="query" placeholder="Search category">
-  <input type="submit" value="Submit">
-<div class="position-relative">
-  <div class="card p-3 m-3 shadow br-3">
-    <h1>Bikes</h1>
-<div class="container mb-5">
-  <div class="d-flex justify-content-between my-4">
-  </div>
-  <div class="row my-2">
-    <% @bikes.each do |bike| %>
-      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
-        <div class="bg-white rounded shadow h-100 thumb-image">
-          <div class="p-3 rounded-bottom d-flex flex-column">
-            <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
-            <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
-            <p>Category:<%= bike.category %> <span class="text-muted font-weight-normal"></span></p>
-            <small class="text-muted"><%= bike.description %></small>
-            <p><%= link_to 'Show', bike %></p>
-            <div class="d-flex align-items-end justify-content-between pt-4">
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5 col-md-offset-3">
+                <div class="container-card">
+                    <% @bikes.each do |bike| %>
+            <div class="mb-4" data-aos="zoom-in">
+              <div class="bg-white rounded shadow h-100 thumb-image">
+                <div # class="p-3 rounded d-flex flex-column">
+                  <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
+                  <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
+                  <p>Category:<%= bike.category %> <span class="text-muted font-weight-normal"></span></p>
+                  <small class="text-muted"><%= bike.description %></small>
+                  <p><%= link_to 'Show', bike %></p>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
+                </div>
+            </div>
+            <div class="col-lg-7 sticky-top">
+                <div class="">
+                    <div class="rounded-lg" id="map"
+                      style="height: 100vh;"
+                      data-markers="<%= @markers.to_json %>"
+                      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+                    </div>
+                  </div>
+            </div>
         </div>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
