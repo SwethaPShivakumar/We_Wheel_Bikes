@@ -1,20 +1,24 @@
-  <p id="notice"><%= notice %></p>
+<div class="search sticky-top">
+  <div class="d-flex py-2 justify-self-center">
+    <p id="notice"><%= notice %></p>
+    <form class="rounded" action="<%= bikes_path %>">
+      <label for="query"></label>
+      <input type="text" id="query" name="query" placeholder="Search Category">
+      <input class="rounded-xl" type="submit" value="Submit">
+  </div>
+</div>
 
-  <form class="bg-light" action="<%= bikes_path %>">
-    <label for="query">Search:</label>
-    <input type="text" id="query" name="query" placeholder="Search category">
-    <input type="submit" value="Submit">
-  <div class="position-relative">
+  <div class="position-relative bg-gray-200">
     <div class="card pt-4">
       <%# <h1>Bikes</h1> %>
 
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-5 col-md-offset-3">
+          <div class="sticky col-lg-5 col-md-offset-3">
             <div class="container-card sticky top-0">
               <% @bikes.each do |bike| %>
-                <div class="mb-4" data-aos="zoom-in">
-                  <div class="bg-white rounded-xl border-b h-100 thumb-image">
+                <div class="mb-1" data-aos="zoom-in">
+                  <div class="bg-white rounded border-gray-300 thumb-image">
                     <div # class="p-3 d-flex flex-column">
                       <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
                       <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
@@ -23,7 +27,7 @@
                       <p><%= link_to 'Show', bike %></p>
                     </div>
                   </div>
-                  <%# <hr> %>
+                  <hr>
                 </div>
               <% end %>
             </div>
