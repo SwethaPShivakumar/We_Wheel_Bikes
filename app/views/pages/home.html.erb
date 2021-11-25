@@ -19,10 +19,10 @@
     <%# <div class="co-12 colsm-6 col-md-4">
       <div class="card-category" data-aos="zoom-in">
       <h2><%= link_to 'Race', bikes_path(category: 'Race', bike: { address: @address })%></h2>
-      </div>
-    </div> %> %>
+      <%# </div> %>
+    <%# </div> %>
   <%# </div> %>
-</div> %> %>
+<%# </div> %>
 
 <%#
 # action -> ???
@@ -32,11 +32,11 @@
 <%# <section class="text-gray-400 bg-gray-900 body-font"> %>
 <%# container %>
 <div class="container d-flex mx-4 bg-color: ($f-red)">
-  <div class="container-text mr-4 border-2 d-flex flex-column justify-content-center">
-    <div class="bg-white p-3 rounded">
+  <div class="container-text mr-4 border-2 d-flex flex-column position-relative justify-content-center">
+    <div class="bg-white p-3 rounded shadow position-absolute">
       <h1 class=“”>Find a bike you want to ride</h1>
         <p class=“”>Discover the perfect bike for your next trip.</p>
-          <div class="container d-flex flex-column rounded">
+          <div class="container d-flex flex-column rounded z-20">
             <label for=“” class=“”>Location</label>
             <input type=“text” id=“hero-field” name=“hero-field” class=“”>
 
@@ -53,9 +53,9 @@
   </div>
 
 
-  <div class="container-img">
+  <div class="container-img rounded-xl pl-16">
 
-      <img class=“object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+      <img class="object-cover object-center rounded ml-8" alt="hero" src="https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80">
   </div>
 </div>
 <%# </section> %>
