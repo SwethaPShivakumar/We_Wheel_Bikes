@@ -8,35 +8,35 @@
     <div class="card pt-4">
       <%# <h1>Bikes</h1> %>
 
-<div class="container-fluid">
+      <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-5 col-md-offset-3">
-                <div class="container-card">
-                    <% @bikes.each do |bike| %>
-            <div class="mb-4" data-aos="zoom-in">
-              <div class="bg-white rounded shadow h-100 thumb-image">
-                <div # class="p-3 rounded d-flex flex-column">
-                  <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
-                  <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
-                  <p>Category:<%= bike.category %> <span class="text-muted font-weight-normal"></span></p>
-                  <small class="text-muted"><%= bike.description %></small>
-                  <p><%= link_to 'Show', bike %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-                </div>
-            </div>
-            <div class="col-lg-7 sticky-top">
-                <div class="">
-                    <div class="rounded-lg" id="map"
-                      style="height: 100vh;"
-                      data-markers="<%= @markers.to_json %>"
-                      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div class="col-lg-5 col-md-offset-3">
+            <div class="container-card">
+              <% @bikes.each do |bike| %>
+                <div class="mb-4" data-aos="zoom-in">
+                  <div class="bg-white rounded-xl border-b h-100 thumb-image">
+                    <div # class="p-3 d-flex flex-column">
+                      <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
+                      <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
+                      <p>Category:<%= bike.category %> <span class="text-muted font-weight-normal"></span></p>
+                      <small class="text-muted"><%= bike.description %></small>
+                      <p><%= link_to 'Show', bike %></p>
                     </div>
                   </div>
+                </div>
+              <% end %>
             </div>
+          </div>
+          <div class="col-lg-7 sticky-top">
+            <div class="container-map">
+              <div class="rounded" id="map"
+                style="height: 100vh;"
+                data-markers="<%= @markers.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
 </div>
