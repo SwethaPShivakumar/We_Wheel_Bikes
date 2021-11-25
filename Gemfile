@@ -69,3 +69,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 
 gem "tailwindcss-rails", "~> 0.5.1"
+
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
