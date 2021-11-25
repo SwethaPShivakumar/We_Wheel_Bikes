@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 Rails.start()
 Turbolinks.start()
@@ -20,8 +22,12 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+<<<<<<< HEAD
 import "tailwindcss";
 
+=======
+import flatpickr from "flatpickr";
+>>>>>>> master
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -29,5 +35,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  flatpickr("#flatpickr", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+  });
   initMapbox();
 });
