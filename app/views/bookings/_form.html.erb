@@ -2,15 +2,15 @@
 
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-        <h2>Pick a date <h2>
-      <div class="bg-white rounded p-3 shadow">
+      <h2 class="mb-2">Pick a date <h2>
+      <div class="bg-white rounded">
         <%= simple_form_for ([@bike, @booking]) do |f| %>
-          <%= f.input :start_day, input_html: { id: "flatpickr" }, as: :string%>
-          <%= f.input :finish_day, input_html: { id: "flatpickr" }, as: :string%>
-          <%= f.submit class: 'btn btn-ghost' %>
+          <%= f.input :start_day, input_html: { id: "flatpickr" }, label_html:{class: "text-sm text-yellow-500"}, as: :string, required:false%>
+          <%= f.input :finish_day, input_html: { id: "flatpickr" }, label_html:{class: "text-sm text-yellow-500"}, as: :string, required:false%>
+          <%= f.submit class: 'w-full bg-yellow-300 border border-transparent rounded-md py-2 px-8 flex items-center justify-center text-base font-medium text-yellow-700 hover:text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-yellow-500' %>
         <% end %>
       </div>
-        
+
     </div>
   </div>
 </div>
