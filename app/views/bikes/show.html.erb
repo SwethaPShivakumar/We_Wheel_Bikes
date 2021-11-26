@@ -31,10 +31,3 @@
   </section>
 
 </div>
-
-    <% if policy(@bike).edit? %>
-      <td><%= link_to 'Edit', edit_bike_path(@bike) %></td>
-    <% end %>
-    <% if policy(@bike).destroy? %>
-      <td><%= link_to 'Destroy', @bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
