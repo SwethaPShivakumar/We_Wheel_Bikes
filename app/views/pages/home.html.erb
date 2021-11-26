@@ -31,24 +31,23 @@
 <%# <section class="text-gray-400 bg-gray-900 body-font"> %>
 <%# container %>
 
-  <div class="container d-flex mx-4 pl-4">
-<p class="p-4" id="notice"><%= notice %></p>
-    <div class="container-text mr-4 pl-4 d-flex flex-column position-relative justify-content-center">
+  <div class="d-flex justify-content-center mt-4">
+    <div class="container-text ml-4 pl-4 d-flex flex-column position-relative justify-content-center">
       <div class="bg-white p-4 rounded shadow position-absolute width">
-        <h1 class=“”>Find a bike you want to ride</h1>
-        <p class=“”>Discover the perfect bike for your next trip.</p>
+        <h1>Find a bike you want to ride</h1>
+        <p>Discover the perfect bike for your next trip.</p>
         <div class="container d-flex flex-column rounded z-20">
           <form action="<%= bikes_path %>" method="get">
-            <label for=“address” class=“”>Location</label>
-            <input type=“text” id='address' name='address' class='border-2 rounded-md'>
+            <label for="address">Location</label>
+            <input type="text" id='address' name='address' class='border-2 rounded-md'>
 
             <div class="card-category" data-aos="zoom-in">
               <%# <p>btn</p> %>
             </div>
-            <button class="btn btn-info shadow rounded">Button</button>
+           <input type="submit" class='btn btn-info shadow rounded mt-2 px-10' value="Submit">
           </form>
         </div>
-        <p class=“mt-4”>Neutra shabby chic ramps, viral fixie.</p>
+        <p class="mt-4">Neutra shabby chic ramps, viral fixie.</p>
       </div>
     </div>
 
@@ -58,32 +57,3 @@
   </div>
 
 
-<% if false %>
-<div class="w-screen h-screen bg-white flex py-10 transform -translate-x-12">
-  <div class="w-1/3 h-full flex items-center">
-    <div class="bg-white p-10 w-full rounded-md shadow transform translate-x-24">
-      <h1 class=“”>Find a bike you want to ride</h1>
-        <p class=“”>Discover the perfect bike for your next trip.</p>
-        <div class="container d-flex flex-column">
-          <form action="<%= bikes_path %>" method="get">
-            <label for='address' class=''>Location</label>
-            <input type=“text” id='address' name='address' class='border-2 rounded-md'>
-
-            <div class="card-category" data-aos="zoom-in">
-              <p></p>
-              <%# <h2><%= link_to 'Race', bikes_path(category: 'Race', bike: { address: @address })%>
-              <%# </h2> %>
-
-            </div>
-            <button class="btn btn-info shadow rounded px-4">Button</button>
-          </form>
-        </div>
-      <p class=“mt-4”>Neutra shabby chic ramps, viral fixie.</p>
-    </div>
-  </div>
-  <%#  IMAGE %>
-  <div class="w-2/3 h-full">
-    <img class="" alt="hero" src="https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80">
-  </div>
-</div>
-<% end %>
