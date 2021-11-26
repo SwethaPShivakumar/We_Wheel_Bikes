@@ -1,25 +1,8 @@
 <div class="flex bg-#f4f4f4 w-screen h-screen">
 
-    <div class="w-2/3 bg-500">
+    <div class="w-2/3 p-10">
       <% @bikes.each do |bike| %>
-        <div class="position-relative">
-          <div class="card p-3 m-3 shadow">
-            <div class="d-flex justify-content-between bg-white rounded">
-
-              <div class="container d-inline-block py-1" style="max-width: 550px;">
-                <strong><%= bike.name %> <span class="text-muted font-weight-normal"></span></strong>
-                <strong><p>$<%= bike.price %> <span class="text-muted font-weight-normal"></span></p></strong>
-                <p>Category: <%= bike.category %> <span class="text-muted font-weight-normal"></span></p>
-                <p><%= link_to 'Show', bike %></p>
-              </div>
-
-              <div class="container py-1"> <%= cl_image_tag(bike.photo.key,
-                width: 300, height: 200, crop: :fill) %>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        <%= render 'bike', bike: bike %>
       <% end %>
     </div>
 
