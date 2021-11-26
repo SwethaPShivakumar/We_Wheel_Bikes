@@ -78,7 +78,7 @@ class BikesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def bike_params
-    params.require(:bike).permit(:name, :description, :price, :longtitude, :latitude, :photo)
+    params.require(:bike).permit(:name, :description, :price, :longtitude, :latitude, :category, :photo)
   end
   # Use callbacks to share common setup or constraints between actions.
 end
