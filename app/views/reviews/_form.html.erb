@@ -1,8 +1,24 @@
-<div class="container">
 
-    <%= simple_form_for [@booking.bike, @booking, @review] do |f| %>
-        <%= f.input :review %>
-        <%= f.submit class: 'btn btn-ghost' %>
-    <% end %>
-    <%= link_to 'Back', bike_path(@booking.bike) %>
-</div>
+
+
+<section class="text-gray-600 body-font relative">
+  
+  <div class="container px-5 py-24 mx-auto flex">
+    <div class="border 1px bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+
+      
+     
+      <div class="relative mb-4">
+        <div>
+            <%= simple_form_for [@booking.bike, @booking, @review] do |f| %>
+                <%= f.input :review %>
+                <%= f.submit class:"text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg " %>
+
+            <% end %>
+        </div>
+      
+      
+    </div>
+   
+  </div>
+</section>

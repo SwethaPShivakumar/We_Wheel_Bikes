@@ -31,23 +31,23 @@
 <%# <section class="text-gray-400 bg-gray-900 body-font"> %>
 <%# container %>
 
-  <div class="container d-flex mx-4 pl-4">
-<p class="p-4" id="notice"><%= notice %></p>
-    <div class="container-text mr-4 pl-4 d-flex flex-column position-relative justify-content-center">
+  <div class="d-flex justify-content-center mt-4">
+    <div class="container-text ml-4 pl-4 d-flex flex-column position-relative justify-content-center">
       <div class="bg-white p-4 rounded shadow position-absolute width">
-        <h1 class=“”>Find a bike you want to ride</h1>
-        <p class=“”>Discover the perfect bike for your next trip.</p>
+        <h1>Find a bike you want to ride</h1>
+        <p>Discover the perfect bike for your next trip.</p>
         <div class="container d-flex flex-column rounded z-20">
           <form action="<%= bikes_path %>" method="get">
-            <label for=“address” class=“”>Location</label>
-            <input type=“text” id='address' name='address' class='border-2 rounded-md'>
+            <label for="address">Location</label>
+            <input type="text" id='address' name='address' class='border-2 rounded-md'>
 
             <div class="card-category" data-aos="zoom-in">
               <%# <p>btn</p> %>
             </div>
-            <button class="btn btn-info shadow rounded">Search</button>
+           <input type="submit" class='btn btn-info shadow rounded mt-2 px-10' value="Submit">
           </form>
         </div>
+        <p class="mt-4">Neutra shabby chic ramps, viral fixie.</p>
       </div>
     </div>
 

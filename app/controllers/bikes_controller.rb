@@ -73,7 +73,7 @@ class BikesController < ApplicationController
 
   def set_bike
     @bike = Bike.find(params[:id])
-    authorize @bike
+    
   end
 
   # Only allow a list of trusted parameters through.
