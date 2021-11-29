@@ -2,3 +2,7 @@
 body {
   background-color: $white;
 }
+
+.scroll-div::-webkit-scrollbar {
+  display: block;
+}
