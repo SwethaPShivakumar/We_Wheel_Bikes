@@ -1,6 +1,6 @@
  <div class="w-full flex mb-4 p-2 rounded-2xl hover:bg-gray-100">
   <div class="overflow-hidden rounded-xl flex-shrink-0 h-36 w-36 border-2 border-white shadow">
-    <%= cl_image_tag(bike.photo.key, width: 300, height: 300, crop: :fill) %>
+    <%= cl_image_tag(bike.photo.key, width: 300, height: 300, crop: :fill) if bike.photo.attached? %>
   </div>
   <div class="p-2 pl-4 flex flex-col justify-between flex-grow-1">
     <div class="flex justify-between">
