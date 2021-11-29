@@ -1,6 +1,6 @@
 <div class="flex bg-#f4f4f4 w-screen h-screen">
 
-    <div class="w-2/3 p-10">
+    <div class="overflow-scroll h-full w-2/3 p-10">
       <% @bikes.each do |bike| %>
         <%= render 'bike', bike: bike %>
       <% end %>
